@@ -1,5 +1,3 @@
-#Demonstrates:
-#Primitive data types, Type conversion, Mathematical operators, Number manipulation, F strings 
 
 print("Welcome to the tip calculator!\n")
 
