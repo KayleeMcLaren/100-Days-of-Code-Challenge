@@ -7,6 +7,9 @@ FINISH_LINE_Y = 280
 
 
 class Player(Turtle):
+    
+    """The Player class which creates the player's turtle character. It creates the movement for the player with the up fucntion. The go_to_start fucntion places the turtle
+    at the starting position at the bottom of the screen. And the is_at_finish_line fucntion determines if the turtle has successfully made it across to the top of the screen"""
     def __init__(self):
         super().__init__()
         self.color("black")
