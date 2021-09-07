@@ -8,6 +8,9 @@ MOVE_INCREMENT = 2
 
 
 class CarManager:
+    """CarManger class which creates the car objects and have a function to create the cars' movement and the level_up fucntion which increases 
+    the car's speed after each successful round of the game"""
+   
 
     def __init__(self):
         super().__init__()
