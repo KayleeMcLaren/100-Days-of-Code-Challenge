@@ -2,6 +2,7 @@
 import turtle
 import pandas
 
+"""Set up the screen and map image"""
 screen = turtle.Screen()
 screen.title("U.S. States Game")
 image = "blank_states_img.gif"
@@ -12,16 +13,15 @@ data = pandas.read_csv("50_states.csv")
 all_states = data.state.to_list()
 guessed_states = []
 
+"""Checks if the user's answer is correct and then updates the display accordingly to show how many states have been guessed correctly. The name of the state 
+then also appears on the image of the map of the U.S. If "Exit" is entered, then the program ends and a list of all the missed states is created. If all 50 states
+are guessed correctly, the program ends"""
 while len(guessed_states) < 50:
     answer_state = screen.textinput(title=f"{len(guessed_states)}/50 States Correct",
                                     prompt="What's another state's name: ").title()
     if answer_state == "Exit":
-        missed_states = []
-        for state_name in all_states:
-            if state_name not in guessed_states:
-                missed_states.append(state_name)
-        states_to_learn = pandas.DataFrame(missed_states)
-        states_to_learn.to_csv("states_to_learn.csv")
+        missed_states = [state_name for state_name in all_states if state_name not in guessed_states]
+        states_to_learn = pandas.DataFrame(missed_states).to_csv("states_to_learn.csv")
         break
 
     if answer_state in all_states:
