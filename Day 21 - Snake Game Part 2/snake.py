@@ -8,9 +8,11 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
-"""The Snake class creates the snake object using the create_snake fucntion. It increases the length of the snake after it collides with 
-the food object using the add_segment function and the extend fucntion. It also creates the snake's movement using the movement fucntion 
-and the directional fucntions up, down, left, and right."""
+"""The Snake class creates the snake object using the create_snake function. It increases the length of the snake after it collides with 
+the food object using the add_segment function and the extend function. If the user's loses a round of the game, the reset function removes 
+the segments which the user aquired during the round and moves them to co ordinates to make ure they are not visible to the user it calls the 
+create_snake fucntion to set the snake to the starting position for the next round of the game. It also creates the snake's movement using 
+the movement function and the directional functions up, down, left, and right."""
 class Snake:
 
     def __init__(self):
@@ -29,6 +31,13 @@ class Snake:
         new_snake_square.shape("square")
         new_snake_square.goto(position)
         self.segments.append(new_snake_square)
+
+    def reset(self):
+        for segment in self.segments:
+            segment.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.snake_head = self.segments[0]
 
     def extend(self):
         self.add_segment(self.segments[-1].position())
