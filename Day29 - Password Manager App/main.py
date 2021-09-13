@@ -8,6 +8,9 @@ import pyperclip
 
 
 def generate_password():
+    """A function to generate a password from a random number of letters, numbers, and symbols which are joined together in the password_list variable
+    and then shuffled. The password is displayed to the user in the password_input Entry widget. Add pyperclip is used to copy the password, so that it
+    is ready to be pasted by the user."""
 
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -32,6 +35,10 @@ def generate_password():
 
 
 def save_password():
+    """A function to save the password either created by the user or generated randomly after pressing the "Generate Password" button. It checks whether the user has left
+    any fields empty and displays an appropriate message to the user. It asks the user to confirm that they want to save the details and if so, the data is saved to the
+    data.txt file. The website_input and password_input Entry widgets are then cleared."""
+    
     website = website_input.get()
     email = email_input.get()
     password = password_input.get()
@@ -44,8 +51,10 @@ def save_password():
         if is_ok:
             with open("data.txt", mode="a") as data:
                 data.write(f"{website} | {email} | {password}\n")
+                
             website_input.delete(0, END)
             password_input.delete(0, END)
+            
 
 # ---------------------------- UI SETUP ------------------------------- #
 
