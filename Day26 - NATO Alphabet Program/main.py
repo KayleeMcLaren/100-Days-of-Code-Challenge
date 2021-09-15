@@ -8,6 +8,9 @@ alphabet_dict = {row.letter: row.code for (index, row) in code_df.iterrows()}
 
 
 def generate_phonetic():
+    """Function to take in a word from the user and search alphabet_dict for each letter in that word and creates a dictionary containing each corresponding phonetic letter.
+    The phonetic letters are then printed out. A try catch block also handles input errors by the user"""
+    
     user_word = input("Enter a word: ").upper()
     try:
         code_words = [alphabet_dict[letter] for letter in user_word]
