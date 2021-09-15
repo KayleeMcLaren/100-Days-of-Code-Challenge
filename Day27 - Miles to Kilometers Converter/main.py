@@ -3,6 +3,7 @@ from tkinter import *
 
 
 def converter():
+    """Function which converts the user's input from miles to kilometers and updates the result_label with the converted value"""
     miles = float(user_input.get())
     m_to_km = miles * 1.609
     result_label.config(text=f"{m_to_km}")
