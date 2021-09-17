@@ -55,7 +55,7 @@ it will send an email to tell the user to go outside and see the ISS overhead"""
             connection.login(user=MY_EMAIL, password=PASSWORD)
             connection.sendmail(
                 from_addr=MY_EMAIL,
-                to_addrs=["recipientemail@yahoo.com"],
+                to_addrs=["recipientemail@yahoo.com"], # recipient's email address
                 msg=f"Subject:ISS Overhead!\n\nGo outside and look up!"
             )
             
